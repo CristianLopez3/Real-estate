@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Inmueble || Tu Inmueble Ideal</title>
+    <title>Agregar Inmueble || Tu Inmueble Ideal</title>
     <link rel="stylesheet" href="css/master.css">
 </head>
+
 <body>
-    <main class="edit">
+    <main class="add">
         <header>
-            <h2>Modificar Inmueble</h2>
+            <h2>Adicionar Inmueble</h2>
             <a href="InmoApartamentos.html" class="back"></a>
-            <a href="index.html" class="close"></a>
+            <a href="../index.php" class="close"></a>
         </header>
-        <form>
+        <form action="../controllers/registrarInmueble.php" method="post" enctype="multipart/form-data">
             
+            <input type="file" name="foto" class="upload" aria-describedby="Foto Inmueble">
             <div class="select">
-                <select>
+                <select name="tipo">
                     <option value="">Seleccione Tipo de Inmueble...</option>
                     <option value="Apartamento">Apartamento</option>
                     <option value="Aparta Estudio">Aparta Estudio</option>
@@ -25,19 +28,20 @@
                 </select>
             </div>
             <div class="select">
-                <select>
+                <select name="categoria">
                     <option value="">Seleccione Categoría...</option>
                     <option value="Arriendo">Arriendo</option>
                     <option value="Venta">Venta</option>
                 </select>
             </div>
-            <input type="number" placeholder="Precio...">
-            <input type="number" placeholder="Tamaño...">
-            <input type="text" placeholder="Ciudad...">
-            <input type="text" placeholder="Localidad/Barrio...">
+            <input type="number" name="precio" placeholder="Precio...">
+            <input type="number" placeholder="Tamaño..." name="tamano">
+            <input type="text" placeholder="Ciudad..." name="ciudad">
+            <input type="text" placeholder="Localidad/Barrio..." name="barrio">
             
-            <button class="btn-home">Modificar</button>
+            <button type="submit" class="btn-home">Guardar</button>
         </form>
     </main>
 </body>
+
 </html>
