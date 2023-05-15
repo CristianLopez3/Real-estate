@@ -86,44 +86,6 @@ function cargarInmuebleEdit(){
 
 }
 
-// function cargarInmuebleUser(){
-
-//     // creamos la variable que obtiene el id del inmueble enviado  por metodo get en mostrar INFO
-//     // metodo get es lo que se envia por la URL
-    
-//     $objConsulta = new Consulta();
-//     $result = $objConsulta -> consultarinmueble();
-
-//     if(!isset($result)){
-
-//         echo '
-//             <tr>
-//                 <td style="text-align: center;">NO HAY INMUEBLES REGISTRADOS</td>
-//             </tr>
-//         ';
-
-//     } else{
-
-//         foreach ($result as $f){
-
-//             echo '
-//             <div class="contCards">
-//             <div class="card-inmueble">
-//                 <img src="'.$f['foto'].'" alt="foto">
-//                 <div class="info-card">
-//                     <h4>Valor de Arriendo:</h4>
-//                     <h2>$'.$f['precio'].'</h2>
-//                     <p>'.$f['categoria'].' - '.$f['tamano'].'</p>
-//                     <p class="direccion">'.$f['ciudad'].'/'.$f['barrio'].'</p>
-//                     <a href="UserShowInmueble.php?id='.$f['id'].'">Ver Más</a>
-//                 </div>
-//             </div>
-//             </div>
-//             ';
-//         }
-//     }
-
-// }
 
 function cargarInmueblesUser(){
 
@@ -158,11 +120,43 @@ function cargarInmueblesUser(){
 
 }
 
+function userShowInmueble(){
+
+    $id = $_GET['id'];
+    $objConsulta = new Consulta();
+    $result = $objConsulta -> consultarInmuebleEdit($id);
+
+
+        foreach($result as $f){
+        //     <figure class="photo-preview">
+        //     <img src="'.$f['foto'].'" alt="">
+        //  </figure>
+            echo '
+            
+            
+            <div class="cont-details">
+                <div>
+                    <article class="info-name"><p>'.$f['tipo'].'</p></article>
+                    <article class="info-category"><p>'.$f['categoria'].'</p></article>
+                    <article class="info-precio"><p>'.$f['precio'].'</p></article>
+                    <article class="info-direccion"><p>'.$f['barrio'].'/'.$f['ciudad'].'</p></article>
+                    <article class="info-tamano"><p>'.$f['tamano'].'</p></article>
+
+                    <a href="#" class="btn-home">Solictar cita</a>
+
+                </div>
+            </div>
+            ';
+
+        }
+
+
+
+}
+
 // esta funcion es solo para traer la informacion del inmueble en el formulario.
 
 
 
 ?>
 
-
-            <!-- -->
