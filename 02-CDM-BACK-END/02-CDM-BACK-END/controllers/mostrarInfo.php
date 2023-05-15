@@ -86,6 +86,44 @@ function cargarInmuebleEdit(){
 
 }
 
+// function cargarInmuebleUser(){
+
+//     // creamos la variable que obtiene el id del inmueble enviado  por metodo get en mostrar INFO
+//     // metodo get es lo que se envia por la URL
+    
+//     $objConsulta = new Consulta();
+//     $result = $objConsulta -> consultarinmueble();
+
+//     if(!isset($result)){
+
+//         echo '
+//             <tr>
+//                 <td style="text-align: center;">NO HAY INMUEBLES REGISTRADOS</td>
+//             </tr>
+//         ';
+
+//     } else{
+
+//         foreach ($result as $f){
+
+//             echo '
+//             <div class="contCards">
+//             <div class="card-inmueble">
+//                 <img src="'.$f['foto'].'" alt="foto">
+//                 <div class="info-card">
+//                     <h4>Valor de Arriendo:</h4>
+//                     <h2>$'.$f['precio'].'</h2>
+//                     <p>'.$f['categoria'].' - '.$f['tamano'].'</p>
+//                     <p class="direccion">'.$f['ciudad'].'/'.$f['barrio'].'</p>
+//                     <a href="UserShowInmueble.php?id='.$f['id'].'">Ver Más</a>
+//                 </div>
+//             </div>
+//             </div>
+//             ';
+//         }
+//     }
+
+// }
 
 function cargarInmueblesUser(){
 
@@ -101,24 +139,16 @@ function cargarInmueblesUser(){
         foreach($result as $f){
 
             echo '
-            <tr>
-                <td>
-                    <figure class="photo">
-                        <img src="'.$f['foto'].'" alt="">
-                    </figure>
-                    <div class="info">
-                        <h3>'.$f['tipo'].'</h3>
-                        <h4>$'.$f['precio'].'</h4>
-                        <p>'.$f['ciudad'].'/'.$f['barrio'].'</p>
+                <div class="card-inmueble">
+                    <img src="'.$f['foto'].'" alt="foto">
+                    <div class="info-card">
+                        <h4>Valor de Arriendo:</h4>
+                        <h2>$'.$f['precio'].'</h2>
+                        <p>'.$f['categoria'].' - '.$f['tamano'].'</p>
+                        <p class="direccion">'.$f['ciudad'].'/'.$f['barrio'].'</p>
+                        <a href="UserShowInmueble.php?id='.$f['id'].'">Ver Más</a>
                     </div>
-                    <div class="controls">
-                        
-                        <a href="InmoEdit.php?id='.$f['id'].'" class="edit"></a>
-                        <a href="../controllers/eliminarInmueble.php?id='.$f['id'].'" class="delete"></a>
-                    </div>
-                </td>
-            </tr>
-
+                 </div>
             ';
 
         }
@@ -129,33 +159,10 @@ function cargarInmueblesUser(){
 }
 
 // esta funcion es solo para traer la informacion del inmueble en el formulario.
-function cargarInmuebleUser(){
 
-    // creamos la variable que obtiene el id del inmueble enviado  por metodo get en mostrar INFO
-    // emtodo get es lo que se envia por la URL
-    $id = $_GET['id'];
-    $objConsulta = new Consulta();
-    $result = $objConsulta -> consultarInmuebleEdit($id);
-
-    foreach ($result as $f){
-
-        echo '
-        <div class="contCards">
-        <div class="card-inmueble">
-            <img src="../imgs/inmueble-1.png" alt="">
-            <div class="info-card">
-                <h4>Valor de Arriendo:</h4>
-                <h2>$'.$f['precio'].'/h2>
-                <p>'.$f['categoria'].' - '.$f['tamano'].'</p>
-                <p class="direccion">'.$f['ciudad'].'/Engativa</p>
-                <a href="UserShowInmueble.php?id='.$f['id'].'">Ver Más</a>
-            </div>
-        </div>
-        ';
-
-    }
-
-}
 
 
 ?>
+
+
+            <!-- -->

@@ -11,8 +11,8 @@
     <main class="show">
         <header>
             <h2>Consultar Inmueble</h2>
-            <a href="UserDashboard.html" class="back"></a>
-            <a href="index.html" class="close"></a>
+            <a href="UserDashboard.php" class="back"></a>
+            <a href="../index.php" class="close"></a>
         </header>
         <figure class="photo-preview">
             <img src="../imgs/inmueble-1.png" alt="">

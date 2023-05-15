@@ -1,3 +1,12 @@
+
+<?php 
+
+require_once('../models/conexion.php');
+require_once('../models/consulta.php');
+require_once('../controllers/mostrarInfo.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,13 +25,12 @@
             
             <a href="../index.php" class="close"></a>
         </header>
-       
-        <?php 
-        
-        
-        ?>
+        <div class="contCards">
+            <?php 
+            cargarInmueblesUser()
+            ?>
         </div>
-
+        
     </main>
 </body>
 
