@@ -27,7 +27,7 @@ require_once('../models/permisosUsuarios.php');
         </header>
         <?php 
      
-        userShowInmueble()
+        userShowInmueble();
         
         ?>
         

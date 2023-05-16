@@ -112,18 +112,15 @@ function cargarInmueblesUser(){
                     </div>
                  </div>
             ';
-
         }
-
     }
-
-
 }
+
 
 function userShowInmueble(){
 
-    $id = $_GET['id'];
     $objConsulta = new Consulta();
+    $id = $_GET['id'];
     $result = $objConsulta -> consultarInmuebleEdit($id);
 
 

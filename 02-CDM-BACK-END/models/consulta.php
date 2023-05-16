@@ -154,10 +154,10 @@ class Consulta{
             $result -> bindParam(':id_user',$id_user);
             $result -> bindParam(':fecha',$fecha);
             $result->execute();
-            echo'
-                <script>alert("solicitud realizada con exito")</script>
-                <script>location.href="../views/UserShowInmueble"</script>
-            ';
+            echo '<script>alert("solicitud realizada con exito")</script>';
+            echo '<script>location.href="../views/UserDashboard.php"</script>';
+                
+            
         
     }
 
@@ -185,7 +185,6 @@ class Consulta{
     }
 
 
-    
     public function mostrarSolicitud($id){
 
         $f = null;
