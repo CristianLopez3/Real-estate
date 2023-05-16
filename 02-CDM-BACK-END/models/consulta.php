@@ -43,6 +43,7 @@ class Consulta{
        
     }
 
+
     public function insertarInmueble($tipo, $categoria, $precio, $tamano, $ciudad, $barrio, $foto){
 
         $objConexion = new Conexion();
@@ -140,6 +141,75 @@ class Consulta{
         echo '<script>location.href="../views/inmoApartamentos.php"</script>';
     }
 
+
+    public function registrarSolicitud($id_inm, $id_user, $fecha){
+
+            $objConexion = new Conexion();
+            $conexion = $objConexion -> get_conexion();
+          
+            $insert = "INSERT INTO solicitudes(id_inm, id_user, fecha)
+            VALUES(:id_inm, :id_user, :fecha)";
+            $result = $conexion->prepare($insert);
+            $result -> bindParam(':id_inm', $id_inm);
+            $result -> bindParam(':id_user',$id_user);
+            $result -> bindParam(':fecha',$fecha);
+            $result->execute();
+            echo'
+                <script>alert("solicitud realizada con exito")</script>
+                <script>location.href="../views/UserShowInmueble"</script>
+            ';
+        
+    }
+
+    public function mostrarSolicitudes(){
+
+        $f = null;
+        $objConexion = new Conexion();
+        $conexion = $objConexion -> get_conexion();
+
+        $select = "SELECT solicitudes.id_sol, inmuebles.tipo,inmuebles.foto, inmuebles.ciudad, inmuebles.barrio, usuarios.nombres 
+        FROM solicitudes 
+        INNER JOIN inmuebles ON solicitudes.id_inm = inmuebles.id
+        INNER JOIN usuarios ON solicitudes.id_user = usuarios.id ";
+
+        $result = $conexion -> prepare($select);
+        $result -> execute();
+        
+        while($statement = $result->fetch()){
+
+            $f[] = $statement;
+
+        }
+
+        return $f;
+    }
+
+
+    
+    public function mostrarSolicitud($id){
+
+        $f = null;
+        $objConexion = new Conexion();
+        $conexion = $objConexion -> get_conexion();
+
+        $select = "SELECT solicitudes.id_sol, inmuebles.tipo, inmuebles.categoria, inmuebles.precio, inmuebles.foto, inmuebles.ciudad, inmuebles.barrio, solicitudes.fecha, usuarios.nombres, usuarios.telefono, usuarios.correo 
+        FROM solicitudes 
+        INNER JOIN inmuebles ON solicitudes.id_inm = inmuebles.id
+        INNER JOIN usuarios ON solicitudes.id_user = usuarios.id
+        WHERE id_sol = :id ";
+
+        $result = $conexion -> prepare($select);
+        $result->bindParam(':id', $id);
+        $result -> execute();
+        
+        while($statement = $result->fetch()){
+
+            $f[] = $statement;
+
+        }
+
+        return $f;
+    }
 
 
 }

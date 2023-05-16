@@ -1,9 +1,10 @@
-
 <?php 
-
 require_once('../models/conexion.php');
 require_once('../models/consulta.php');
 require_once('../controllers/mostrarInfo.php');
+ 
+require_once('../models/validarSesion.php');
+require_once('../models/permisosInmo.php');
 
 ?>
 
@@ -14,23 +15,21 @@ require_once('../controllers/mostrarInfo.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard User || Tu Inmueble Ideal</title>
+    <title>Ver Solicitud || Tu Inmueble Ya</title>
     <link rel="stylesheet" href="css/master.css">
 </head>
 
 <body>
-    <main class="dashboard">
+    <main class="show">
         <header>
-            <h2>Inmuebles Disponibles</h2>
-            
-            <a href="../index.php" class="close"></a>
+            <h2>Consultar Solicitud</h2>
+            <a href="InmoSolicitudes.php" class="back"></a>
+            <a href="../controllers/cerrarSesion.php" class="close"></a>
         </header>
-        <div class="contCards">
-            <?php 
-            cargarInmueblesUser()
-            ?>
-        </div>
-        
+        <?php 
+            showSolicitud();
+        ?>
+
     </main>
 </body>
 

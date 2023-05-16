@@ -1,3 +1,7 @@
+<?php 
+require_once('../models/validarSesion.php');
+require_once('../models/permisosInmo.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +17,7 @@
     <main class="dashboard">
         <header>
             <h2>Panel de Administración</h2>
-            <a href="../index.php" class="close"></a>
+            <a href="../controllers/cerrarSesion.php" class="close"></a>
         </header>
         <a href="InmoApartamentos.php" class="btn-home inmuebles">Inmuebles</a>
         <a href="InmoSolicitudes.php" class="btn-home solicitudes">Solicitudes</a>

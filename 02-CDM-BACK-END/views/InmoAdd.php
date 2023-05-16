@@ -1,3 +1,7 @@
+<?php 
+require_once('../models/validarSesion.php');
+require_once('../models/permisosInmo.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +18,7 @@
         <header>
             <h2>Adicionar Inmueble</h2>
             <a href="InmoApartamentos.html" class="back"></a>
-            <a href="../index.php" class="close"></a>
+            <a href="../controllers/cerrarSesion.php" class="close"></a>
         </header>
         <form action="../controllers/registrarInmueble.php" method="post" enctype="multipart/form-data">
             
