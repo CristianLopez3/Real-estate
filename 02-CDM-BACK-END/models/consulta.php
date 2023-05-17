@@ -7,7 +7,8 @@ class Consulta{
         $objConexion = new Conexion();
         $conexion = $objConexion -> get_conexion();
         // validaremos si el usuario ya esta registrado a partir de un select y un if
-        $consultar = "SELECT * FROM usuarios WHERE id = :identificacion || correo = :correo";
+        // En este caso la consulta sql no es ||, ya que esto es como tal en el lenguaje, en el caso de querys sql seria or, recordando que en sql las condiciones se dan con los nombres y no con simnolos
+        $consultar = "SELECT * FROM usuarios WHERE id = :identificacion or correo = :correo";
         $result = $conexion -> prepare($consultar);
         $result -> bindParam(':identificacion', $identificacion);
         $result -> bindParam(':correo',$correo);
